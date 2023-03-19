@@ -20,8 +20,7 @@ namespace Post.Cmd.Infrastructure.Repository
 
         public async Task<List<EventModel>> FindByAggregateId(Guid aggregateId) =>
            await _eventsStoreCollection.Find(x => x.AggregateIdentifier == aggregateId)
-            .ToListAsync()
-            .ConfigureAwait(false);
+            .ToListAsync();
 
         public async Task SaveAsync(EventModel @event) =>
             await _eventsStoreCollection.InsertOneAsync(@event).ConfigureAwait(false);

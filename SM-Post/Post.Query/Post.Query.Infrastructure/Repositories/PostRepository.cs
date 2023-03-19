@@ -2,11 +2,6 @@
 using Post.Query.Domain.Entities;
 using Post.Query.Domain.Repositories;
 using Post.Query.Infrastructure.DataAccess;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Post.Query.Infrastructure.Repositories
 {
@@ -33,7 +28,7 @@ namespace Post.Query.Infrastructure.Repositories
 
             var post = await GetByIdAsync(postId);
 
-            if(post is null)
+            if (post is null)
             {
                 return;
             }
@@ -90,7 +85,7 @@ namespace Post.Query.Infrastructure.Repositories
             return await context.Posts
               .AsNoTracking()
               .Include(x => x.Comments)
-              .Where(x => x.Likes >= numberOfLikes )
+              .Where(x => x.Likes >= numberOfLikes)
               .ToListAsync();
         }
 
@@ -99,7 +94,7 @@ namespace Post.Query.Infrastructure.Repositories
             using var context = _contextFactory.CreateDbContext();
             context.Update(entity);
 
-            await context.SaveChangesAsync();   
+            await context.SaveChangesAsync();
         }
     }
 }

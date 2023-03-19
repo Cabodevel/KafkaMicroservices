@@ -1,13 +1,7 @@
 ﻿using CQRS.Core.Events;
-using Microsoft.EntityFrameworkCore.Query.Internal;
 using Post.Common.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Post.Query.Infrastructure.Converters
 {
@@ -19,12 +13,12 @@ namespace Post.Query.Infrastructure.Converters
         }
         public override BaseEvent? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            if(!JsonDocument.TryParseValue(ref reader, out var doc))
+            if (!JsonDocument.TryParseValue(ref reader, out var doc))
             {
                 throw new JsonException($"Failed to parse {nameof(JsonDocument)}");
             }
 
-            if(!doc.RootElement.TryGetProperty("Type", out var type))
+            if (!doc.RootElement.TryGetProperty("Type", out var type))
             {
                 throw new JsonException("Could not detect the Type discriminator property");
             }
