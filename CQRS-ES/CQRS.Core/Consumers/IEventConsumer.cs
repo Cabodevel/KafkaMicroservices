@@ -1,4 +1,6 @@
-﻿namespace CQRS.Core.Consumers
+using CQRS.Core.Events;
+
+namespace CQRS.Core.Consumers
 {
     public interface IEventConsumer
     {

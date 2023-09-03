@@ -1,17 +1,18 @@
-﻿using CQRS.Core.Events;
-using Post.Common.Events;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CQRS.Core.Events;
+using Post.Common.Events;
 
 namespace Post.Query.Infrastructure.Converters
 {
-    internal class EventJsonConverter : JsonConverter<BaseEvent>
+    public class EventJsonConverter : JsonConverter<BaseEvent>
     {
-        public override bool CanConvert(Type typeToConvert)
+        public override bool CanConvert(Type type)
         {
-            return typeToConvert.IsAssignableFrom(typeof(BaseEvent));
+            return type.IsAssignableFrom(typeof(BaseEvent));
         }
-        public override BaseEvent? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+
+        public override BaseEvent Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if (!JsonDocument.TryParseValue(ref reader, out var doc))
             {
@@ -20,7 +21,7 @@ namespace Post.Query.Infrastructure.Converters
 
             if (!doc.RootElement.TryGetProperty("Type", out var type))
             {
-                throw new JsonException("Could not detect the Type discriminator property");
+                throw new JsonException("Could not detect the Type discriminator property!");
             }
 
             var typeDiscriminator = type.GetString();
@@ -35,7 +36,7 @@ namespace Post.Query.Infrastructure.Converters
                 nameof(CommentUpdatedEvent) => JsonSerializer.Deserialize<CommentUpdatedEvent>(json, options),
                 nameof(CommentRemovedEvent) => JsonSerializer.Deserialize<CommentRemovedEvent>(json, options),
                 nameof(PostRemovedEvent) => JsonSerializer.Deserialize<PostRemovedEvent>(json, options),
-                _ => throw new JsonException($"{typeDiscriminator} is not supported yet")
+                _ => throw new JsonException($"{typeDiscriminator} is not supported yet!")
             };
         }
 

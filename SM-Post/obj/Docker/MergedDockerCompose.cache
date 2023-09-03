@@ -1,0 +1,29 @@
+name: dockercompose10471627111741524912
+services:
+  post.cmd.api:
+    build:
+      context: G:\Repos\Microservices\SM-Post
+      dockerfile: Post.Cmd/Post.Cmd.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: postcmdapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\Carlos\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose10471627111741524912_default

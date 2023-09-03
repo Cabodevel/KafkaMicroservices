@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9W3zEoyGvsnU/MwQeoVxzJBmLnaN7NAx+jxf2/DCrHSKEuCAS8mnJY6v0HLRhaQir8cNmtjzH2kCMxHL3Nvu8g==",
+  "dgSpecHash": "S4lVgGAx6XgGHut7w4ZiMqQYgihr3Z5orZOz6g+b8KazxvvUByPjCr5OgkXeFcVvsdvUIRM/rGoLWCs7uyF2dw==",
   "success": true,
-  "projectFilePath": "F:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Infrastructure\\Post.Cmd.Infrastructure.csproj",
+  "projectFilePath": "G:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Infrastructure\\Post.Cmd.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Carlos\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

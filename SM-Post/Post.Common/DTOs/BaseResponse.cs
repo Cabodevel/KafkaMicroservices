@@ -1,4 +1,4 @@
-﻿namespace Post.Common.DTOs
+namespace Post.Common.DTOs
 {
     public class BaseResponse
     {

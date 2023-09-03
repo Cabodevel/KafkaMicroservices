@@ -770,19 +770,19 @@
   },
   "packageFolders": {
     "C:\\Users\\Carlos\\.nuget\\packages\\": {},
-    "D:\\Program Files\\VSShared\\NuGetPackages": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Repos\\Microservices\\SM-Post\\Post.Common\\Post.Common.csproj",
+      "projectUniqueName": "G:\\Repos\\Microservices\\SM-Post\\Post.Common\\Post.Common.csproj",
       "projectName": "Post.Common",
-      "projectPath": "F:\\Repos\\Microservices\\SM-Post\\Post.Common\\Post.Common.csproj",
+      "projectPath": "G:\\Repos\\Microservices\\SM-Post\\Post.Common\\Post.Common.csproj",
       "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
-      "outputPath": "F:\\Repos\\Microservices\\SM-Post\\Post.Common\\obj\\",
+      "outputPath": "G:\\Repos\\Microservices\\SM-Post\\Post.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files\\VSShared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -801,8 +801,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "F:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj": {
-              "projectPath": "F:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj"
+            "G:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj": {
+              "projectPath": "G:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj"
             }
           }
         }
@@ -832,7 +832,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

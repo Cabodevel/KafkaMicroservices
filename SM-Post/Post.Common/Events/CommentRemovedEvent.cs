@@ -1,4 +1,4 @@
-﻿using CQRS.Core.Events;
+using CQRS.Core.Events;
 
 namespace Post.Common.Events
 {
@@ -6,7 +6,6 @@ namespace Post.Common.Events
     {
         public CommentRemovedEvent() : base(nameof(CommentRemovedEvent))
         {
-
         }
 
         public Guid CommentId { get; set; }

@@ -1,4 +1,4 @@
-﻿using CQRS.Core.Domain;
+using CQRS.Core.Domain;
 using Post.Common.Events;
 
 namespace Post.Cmd.Domain.Aggregates
@@ -6,16 +6,13 @@ namespace Post.Cmd.Domain.Aggregates
     public class PostAggregate : AggregateRoot
     {
         private bool _active;
-
         private string _author;
-
         private readonly Dictionary<Guid, Tuple<string, string>> _comments = new();
 
-        public bool Active { get => _active; set { _active = value; } }
+        public bool Active { get => _active; set => _active = value; }
 
         public PostAggregate()
         {
-
         }
 
         public PostAggregate(Guid id, string author, string message)
@@ -40,18 +37,18 @@ namespace Post.Cmd.Domain.Aggregates
         {
             if (!_active)
             {
-                throw new InvalidOperationException("Cannot edit a message of an inactive post");
+                throw new InvalidOperationException("You cannot edit the message of an inactive post!");
             }
 
             if (string.IsNullOrWhiteSpace(message))
             {
-                throw new ArgumentNullException(nameof(message), "The value of message cannot be null or empty");
+                throw new InvalidOperationException($"The value of {nameof(message)} cannot be null or empty. Please provide a valid {nameof(message)}!");
             }
 
             RaiseEvent(new MessageUpdatedEvent
             {
                 Id = _id,
-                Message = message,
+                Message = message
             });
         }
 
@@ -64,12 +61,12 @@ namespace Post.Cmd.Domain.Aggregates
         {
             if (!_active)
             {
-                throw new InvalidOperationException("Cannot like an inactive post");
+                throw new InvalidOperationException("You cannot like an inactive post!");
             }
 
             RaiseEvent(new PostLikedEvent
             {
-                Id = _id,
+                Id = _id
             });
         }
 
@@ -78,15 +75,16 @@ namespace Post.Cmd.Domain.Aggregates
             _id = @event.Id;
         }
 
-        public void AddComment(string comment, string userName)
+        public void AddComment(string comment, string username)
         {
             if (!_active)
             {
-                throw new InvalidOperationException("Cannot add a comment to an inactive post");
+                throw new InvalidOperationException("You cannot add a comment to an inactive post!");
             }
+
             if (string.IsNullOrWhiteSpace(comment))
             {
-                throw new ArgumentNullException(nameof(comment), "The value of comment cannot be null or empty");
+                throw new InvalidOperationException($"The value of {nameof(comment)} cannot be null or empty. Please provide a valid {nameof(comment)}!");
             }
 
             RaiseEvent(new CommentAddedEvent
@@ -94,25 +92,25 @@ namespace Post.Cmd.Domain.Aggregates
                 Id = _id,
                 CommentId = Guid.NewGuid(),
                 Comment = comment,
-                UserName = userName,
-                CommentDate = DateTime.Now,
+                Username = username,
+                CommentDate = DateTime.Now
             });
         }
 
         public void Apply(CommentAddedEvent @event)
         {
             _id = @event.Id;
-            _comments.Add(@event.CommentId, new Tuple<string, string>(@event.Comment, @event.UserName));
+            _comments.Add(@event.CommentId, new Tuple<string, string>(@event.Comment, @event.Username));
         }
 
-        public void EditComment(Guid commentId, string comment, string userName)
+        public void EditComment(Guid commentId, string comment, string username)
         {
             if (!_active)
             {
-                throw new InvalidOperationException("Cannot edit a comment of an inactive post");
+                throw new InvalidOperationException("You cannot edit a comment of an inactive post!");
             }
 
-            if (!_comments[commentId].Item2.Equals(userName, StringComparison.CurrentCultureIgnoreCase))
+            if (!_comments[commentId].Item2.Equals(username, StringComparison.CurrentCultureIgnoreCase))
             {
                 throw new InvalidOperationException("You are not allowed to edit a comment that was made by another user!");
             }
@@ -122,7 +120,7 @@ namespace Post.Cmd.Domain.Aggregates
                 Id = _id,
                 CommentId = commentId,
                 Comment = comment,
-                UserName = userName,
+                Username = username,
                 EditDate = DateTime.Now
             });
         }
@@ -130,22 +128,26 @@ namespace Post.Cmd.Domain.Aggregates
         public void Apply(CommentUpdatedEvent @event)
         {
             _id = @event.Id;
-            _comments[@event.CommentId] = new Tuple<string, string>(@event.Comment, @event.UserName);
+            _comments[@event.CommentId] = new Tuple<string, string>(@event.Comment, @event.Username);
         }
 
-        public void RemoveComment(Guid commentId, string userName)
+        public void RemoveComment(Guid commentId, string username)
         {
             if (!_active)
             {
-                throw new InvalidOperationException("Cannot remove a comment of an inactive post");
+                throw new InvalidOperationException("You cannot remove a comment of an inactive post!");
             }
 
-            if (!_comments[commentId].Item2.Equals(userName, StringComparison.CurrentCultureIgnoreCase))
+            if (!_comments[commentId].Item2.Equals(username, StringComparison.CurrentCultureIgnoreCase))
             {
                 throw new InvalidOperationException("You are not allowed to remove a comment that was made by another user!");
             }
 
-            RaiseEvent(new CommentRemovedEvent { Id = _id, CommentId = commentId, });
+            RaiseEvent(new CommentRemovedEvent
+            {
+                Id = _id,
+                CommentId = commentId
+            });
         }
 
         public void Apply(CommentRemovedEvent @event)
@@ -154,20 +156,19 @@ namespace Post.Cmd.Domain.Aggregates
             _comments.Remove(@event.CommentId);
         }
 
-        public void DeletePost(string userName)
+        public void DeletePost(string username)
         {
             if (!_active)
             {
-                throw new InvalidOperationException("The post already has been removed");
+                throw new InvalidOperationException("The post has already been removed!");
             }
 
-            if (!_author.Equals(userName, StringComparison.CurrentCultureIgnoreCase))
+            if (!_author.Equals(username, StringComparison.CurrentCultureIgnoreCase))
             {
-                throw new InvalidOperationException("You are noot allowed to delete a post that was made by someone else");
+                throw new InvalidOperationException("You are not allowed to delete a post that was made by somebody else!");
             }
 
-
-            RaiseEvent(new PostRemovedEvent { Id = _id, });
+            RaiseEvent(new PostRemovedEvent { Id = _id });
         }
 
         public void Apply(PostRemovedEvent @event)

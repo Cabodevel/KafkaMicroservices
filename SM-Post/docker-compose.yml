@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  kafka:
+    image: docker.io/bitnami/kafka:3.5
+  kafkamongo:
+    container_name: kafkamongo
+volumes:
+  kafkamongodata:
+  kafka_data:
+    driver: local

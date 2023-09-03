@@ -1,4 +1,4 @@
-﻿using Post.Common.Events;
+using Post.Common.Events;
 using Post.Query.Domain.Entities;
 using Post.Query.Domain.Repositories;
 
@@ -22,7 +22,7 @@ namespace Post.Query.Infrastructure.Handlers
                 PostId = @event.Id,
                 Author = @event.Author,
                 DatePosted = @event.DatePosted,
-                Message = @event.Message,
+                Message = @event.Message
             };
 
             await _postRepository.CreateAsync(post);
@@ -32,10 +32,7 @@ namespace Post.Query.Infrastructure.Handlers
         {
             var post = await _postRepository.GetByIdAsync(@event.Id);
 
-            if(post is null)
-            {
-                return;
-            }
+            if (post == null) return;
 
             post.Message = @event.Message;
             await _postRepository.UpdateAsync(post);
@@ -44,16 +41,11 @@ namespace Post.Query.Infrastructure.Handlers
         public async Task On(PostLikedEvent @event)
         {
             var post = await _postRepository.GetByIdAsync(@event.Id);
-          
-            if (post is null)
-            {
-                return;
-            }
+
+            if (post == null) return;
 
             post.Likes++;
-
             await _postRepository.UpdateAsync(post);
-
         }
 
         public async Task On(CommentAddedEvent @event)
@@ -64,7 +56,7 @@ namespace Post.Query.Infrastructure.Handlers
                 CommentId = @event.CommentId,
                 CommentDate = @event.CommentDate,
                 Comment = @event.Comment,
-                UserName = @event.UserName,
+                Username = @event.Username,
                 Edited = false
             };
 
@@ -75,10 +67,7 @@ namespace Post.Query.Infrastructure.Handlers
         {
             var comment = await _commentRepository.GetByIdAsync(@event.CommentId);
 
-            if(comment is null)
-            {
-                return;
-            }
+            if (comment == null) return;
 
             comment.Comment = @event.Comment;
             comment.Edited = true;

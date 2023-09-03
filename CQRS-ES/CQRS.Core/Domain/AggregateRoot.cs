@@ -1,4 +1,4 @@
-﻿using CQRS.Core.Events;
+using CQRS.Core.Events;
 
 namespace CQRS.Core.Domain
 {
@@ -20,11 +20,12 @@ namespace CQRS.Core.Domain
 
         private void ApplyChange(BaseEvent @event, bool isNew)
         {
-            var method = GetType().GetMethod("Apply", new Type[] { @event.GetType() });
+            var type = System.AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes()).First(x => x.Name == @event.Type);
+            var method = GetType().GetMethod("Apply", new Type[] { type });
 
             if(method is null)
             {
-                throw new InvalidOperationException($"The Apply method was not found in the aggregate for {@event.GetType().Name}");
+                throw new InvalidOperationException($"The Apply method was not found in the aggregate for {type.Name}");
             }
 
             method.Invoke(this, new object[] { @event, });

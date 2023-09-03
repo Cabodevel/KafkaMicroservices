@@ -752,19 +752,19 @@
   },
   "packageFolders": {
     "C:\\Users\\Carlos\\.nuget\\packages\\": {},
-    "D:\\Program Files\\VSShared\\NuGetPackages": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj",
+      "projectUniqueName": "G:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj",
       "projectName": "CQRS.Core",
-      "projectPath": "F:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj",
+      "projectPath": "G:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj",
       "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
-      "outputPath": "F:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\obj\\",
+      "outputPath": "G:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files\\VSShared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -816,7 +816,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

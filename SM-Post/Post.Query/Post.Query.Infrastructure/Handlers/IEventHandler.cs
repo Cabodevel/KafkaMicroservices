@@ -1,4 +1,4 @@
-﻿using Post.Common.Events;
+using Post.Common.Events;
 
 namespace Post.Query.Infrastructure.Handlers
 {

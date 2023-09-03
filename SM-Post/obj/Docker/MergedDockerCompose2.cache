@@ -1,0 +1,32 @@
+name: dockercompose10471627111741524912
+services:
+  kafka:
+    environment:
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://:9092
+      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 0@kafka:9093
+      KAFKA_CFG_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_CFG_NODE_ID: "0"
+      KAFKA_CFG_PROCESS_ROLES: controller,broker
+    image: docker.io/bitnami/kafka:3.5
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 9092
+      published: "9092"
+      protocol: tcp
+    volumes:
+    - type: volume
+      source: kafka_data
+      target: /bitnami
+      volume: {}
+networks:
+  default:
+    name: dockercompose10471627111741524912_default
+volumes:
+  kafka_data:
+    name: dockercompose10471627111741524912_kafka_data
+    driver: local

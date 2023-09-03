@@ -1188,19 +1188,19 @@
   },
   "packageFolders": {
     "C:\\Users\\Carlos\\.nuget\\packages\\": {},
-    "D:\\Program Files\\VSShared\\NuGetPackages": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Infrastructure\\Post.Cmd.Infrastructure.csproj",
+      "projectUniqueName": "G:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Infrastructure\\Post.Cmd.Infrastructure.csproj",
       "projectName": "Post.Cmd.Infrastructure",
-      "projectPath": "F:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Infrastructure\\Post.Cmd.Infrastructure.csproj",
+      "projectPath": "G:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Infrastructure\\Post.Cmd.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
-      "outputPath": "F:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Infrastructure\\obj\\",
+      "outputPath": "G:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files\\VSShared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1219,11 +1219,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "F:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj": {
-              "projectPath": "F:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj"
+            "G:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj": {
+              "projectPath": "G:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj"
             },
-            "F:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Domain\\Post.Cmd.Domain.csproj": {
-              "projectPath": "F:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Domain\\Post.Cmd.Domain.csproj"
+            "G:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Domain\\Post.Cmd.Domain.csproj": {
+              "projectPath": "G:\\Repos\\Microservices\\SM-Post\\Post.Cmd\\Post.Cmd.Domain\\Post.Cmd.Domain.csproj"
             }
           }
         }
@@ -1267,7 +1267,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

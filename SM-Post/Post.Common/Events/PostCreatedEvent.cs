@@ -1,9 +1,4 @@
-﻿using CQRS.Core.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CQRS.Core.Events;
 
 namespace Post.Common.Events
 {
@@ -14,7 +9,6 @@ namespace Post.Common.Events
         }
 
         public string Author { get; set; }
-
         public string Message { get; set; }
         public DateTime DatePosted { get; set; }
     }

@@ -1,4 +1,4 @@
-﻿namespace Post.Cmd.Api.Commands
+namespace Post.Cmd.Api.Commands
 {
     public interface ICommandHandler
     {
@@ -6,7 +6,7 @@
         Task HandleAsync(EditMessageCommand command);
         Task HandleAsync(LikePostCommand command);
         Task HandleAsync(AddCommentCommand command);
-        Task HandleAsync(EditCommentComand command);
+        Task HandleAsync(EditCommentCommand command);
         Task HandleAsync(RemoveCommentCommand command);
         Task HandleAsync(DeletePostCommand command);
     }

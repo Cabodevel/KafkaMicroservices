@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Post.Query.Domain.Entities;
 
 namespace Post.Query.Infrastructure.DataAccess
@@ -7,7 +7,6 @@ namespace Post.Query.Infrastructure.DataAccess
     {
         public DatabaseContext(DbContextOptions options) : base(options)
         {
-
         }
 
         public DbSet<PostEntity> Posts { get; set; }

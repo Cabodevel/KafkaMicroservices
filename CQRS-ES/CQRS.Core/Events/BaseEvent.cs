@@ -1,15 +1,17 @@
-﻿using CQRS.Core.Messages;
+using CQRS.Core.Messages;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace CQRS.Core.Events
 {
-    public abstract class BaseEvent : Message
+    [BsonIgnoreExtraElements]
+    public class BaseEvent : Message
     {
         protected BaseEvent(string type)
         {
             Type = type;
         }
 
-        public int Version { get; set; }
         public string Type { get; set; }
+        public int Version { get; set; }
     }
 }

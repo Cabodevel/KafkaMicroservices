@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LxgEgd/CxLfB/wbf0Psbd7cVEGZ7IQccQNTv9hOu7dJfriwN1NYTW+wjQzcUGhDxrnPmr4fROOM5tEYraHEIAg==",
+  "dgSpecHash": "+mlCoy4SXR6kTK8R2fT5lfRe0MDddtjmP2OPS6GPK9t8hxALoDc9OuzyuwpKH8uEJ6usHgIDF3BgCkPvsa3OsA==",
   "success": true,
-  "projectFilePath": "F:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj",
+  "projectFilePath": "G:\\Repos\\Microservices\\CQRS-ES\\CQRS.Core\\CQRS.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Carlos\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
